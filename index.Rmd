@@ -1,0 +1,17 @@
+---
+title: "Hi, I'm Mengfan"
+output: 
+  html_document
+---
+
+<p class="lead">Welcome to my website!</p>
+
+<div align="center"><img src="images/hi.jpg" style="width:100%"></div>
+
+</br>
+
+<p class="lead">I'm Mengfan, a graduate student at Columbia University Mailman School of Public Health. I'm a Biostatistics student, a food lover, and a musical fan. </p> 
+
+<p class="lead">Want to learn more about my stories? click [About Me](about.html) to explore more.</p>
+
+<p class="lead">If you are also a foodie and happen to live in NYC, click [Dashboard](dashboard.html) to explore great restaurants with me!</p>

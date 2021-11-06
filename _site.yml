@@ -1,0 +1,20 @@
+name: "Mengfan's website!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About Me"
+      href: about.html
+    - text: "Dashboard"
+      href: dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<ml4701@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/MengfanLuo/
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/mengfan-natalie-luo/
+    - icon: fa-instagram fa-lg
+      href: https://www.instagram.com/mengfanluo98/
+output:
+  html_document:
+    theme: journal

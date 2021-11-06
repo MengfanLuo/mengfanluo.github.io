@@ -1,0 +1,30 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+Hi, my name is <strong>Mengfan Luo</strong>, you can also call me <strong>Natalie</strong>. I was born and raised in Shanghai, China. Currently, I'm a first year MS student at Columbia University Mailman School of Public Health, majoring in Biostatistics with a concentration in Public Health Data Science.
+
+## Academic Experience
+
+Graduated from The Chinese University of Hong Kong, Shenzhen with a degree of BS in Bioinformatics, I have gained an extensive knowledge of issues important to Pharma, Biotech and other healthcare companies through past coursework. My experience in lab research and data science competition arouse my interest in data analytics and lead me to my graduate study in Biostatistics. Detailed information regarding to my academic and professional experience can be found in my [resume](files/resume.pdf). 
+
+Also, feel free to visit my data science projects on [github](https://github.com/MengfanLuo) and [kaggle](https://www.kaggle.com/mengfanluo).
+
+## My Hobbies
+
+I'm a food lover and a musical fan, so NYC is a magic city to me with thousands of fantastic restaurants and the fabulous Broadway. If you are also enthusiastic about discovering great food or performances, let's do it together!
+
+## Contact Me
+
+Want to know more about me? Feel free to contact me through:
+
+- __email:__ ml4701@cumc.columbia.edu
+- __LinkedIn:__ https://www.linkedin.com/in/mengfan-natalie-luo/
+- __Instagram:__ https://www.instagram.com/mengfanluo98/
+
+
+
