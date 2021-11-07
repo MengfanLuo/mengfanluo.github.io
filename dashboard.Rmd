@@ -18,6 +18,8 @@ library(jsonlite)
 This dashboard displays information of inspection for restaurants in Manhattan, New York.
 
 ```{r}
+## For more informative data display, I download the full nyc_inspections dataset using the code posted on p8105.com rather than using the castrated dataset in p8105.datasets package. (Specifically, to get latitue and longitude information for the restaurants)
+
 get_all_inspections = function(url) {
   
   all_inspections = vector("list", length = 0)
