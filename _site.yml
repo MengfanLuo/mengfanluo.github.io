@@ -13,8 +13,6 @@ navbar:
       href: http://github.com/MengfanLuo/
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/mengfan-natalie-luo/
-    - icon: fa-instagram fa-lg
-      href: https://www.instagram.com/mengfanluo98/
 output:
   html_document:
     theme: journal

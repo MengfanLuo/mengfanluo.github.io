@@ -14,4 +14,4 @@ output:
 
 <p class="lead">Want to learn more about my stories? click [About Me](about.html) to explore more.</p>
 
-<p class="lead">If you are also a foodie and happen to live in NYC, click [Dashboard](dashboard.html) to explore great restaurants with me!</p>
+<p class="lead">If you are also a foodie and happen to live in NYC, click [Dashboard](dashboard.html) to explore the restaurants in NY with me!</p>
