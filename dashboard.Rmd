@@ -15,7 +15,7 @@ library(httr)
 library(jsonlite)
 ```
 
-This dashboard displays information of inspection for restaurants in Manhattan, New York.
+This dashboard displays newest information of inspection for restaurants in New York.
 
 ```{r}
 ## For more informative data display, I download the full nyc_inspections dataset using the code posted on p8105.com rather than using the castrated dataset in p8105.datasets package. (Specifically, to get latitue and longitude information for the restaurants)
@@ -60,24 +60,35 @@ nyc_inspections =
 
 
 ```{r}
-rest_manhattan = 
+nyc_inspect = 
   nyc_inspections %>%
-  filter(boro == "Manhattan") %>% 
+  distinct() %>% 
   drop_na() %>% 
-  mutate(
-    long = as.numeric(latitude),
-    lat = as.numeric(longitude))#Latitude and longitude data seem to be the other way around.
+  separate(inspection_date,into = c("year","other"),4) %>% 
+  mutate(year = as.numeric(year),
+         long = as.numeric(latitude),
+         lat = as.numeric(longitude)) 
+
+rest_new_filter = 
+  nyc_inspect %>%
+  #Latitude and longitude data seem to be the other way around.
+  group_by(camis) %>%
+    summarize(year = max(year))
+
+rest_new = left_join(rest_new_filter, nyc_inspect, by = c("camis","year")) %>% 
+  select(boro,grade,score,lat,long,dba,cuisine_description) %>% 
+  distinct()
+
 ```
 
 
 Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart A
+### An interactive map for restaurants in NYC
 
 ```{r}
-rest_manhattan %>% 
-  filter(grade %in% c("A","B","C")) %>% 
+rest_new %>% 
   mutate(
     text_label = str_c("Name:",dba,"\nGrade:",grade)
   ) %>% 
@@ -90,25 +101,25 @@ rest_manhattan %>%
 Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart B
+### The top 30 resturant types in NYC
 
 ```{r}
-rest_manhattan_popular = rest_manhattan %>% 
+rest_popular = rest_new %>% 
   count(cuisine_description) %>% 
   mutate(cuisine_description = fct_reorder(cuisine_description, n ,.desc = TRUE))
 
-popular_30 = levels(pull(rest_manhattan_popular,cuisine_description))[1:30]
+popular_30 = levels(pull(rest_popular,cuisine_description))[1:30]
 
 
-rest_manhattan_popular %>% 
+rest_popular %>% 
   filter(cuisine_description %in%  popular_30) %>% 
   plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")
 ```
 
-### Chart C
+### Top 30 resturant types and their inspection scores
 
 ```{r}
-rest_manhattan %>% 
+rest_new %>% 
   mutate(score = as.numeric(score)) %>% 
   filter(cuisine_description %in%  popular_30) %>% 
   plot_ly(y = ~score, color = ~cuisine_description, type = "box",
